@@ -12,6 +12,9 @@ app.use(methodOverride('_method'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+import router from './router/routes.js';
+app.use("" , router);
+
 app.listen(port , ()=>{
     console.log(`App is listening on the port ${port}.`)
 });
