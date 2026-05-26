@@ -25,10 +25,12 @@
     </form>
   </nav>
 
-  <div class="input-group my-3  px-3">
-    <input type="text" class="form-control" placeholder="Enter your task....." aria-label="Recipient’s username" aria-describedby="button-addon2">
-    <button class="btn btn-success" type="button" id="button-addon2">Add Task</button>
-  </div>
+  <form method="post" action="/new">
+    <div class="input-group my-3  px-3">
+      <input type="text" class="form-control" placeholder="Enter your task....." name="task" aria-describedby="button-addon2">
+      <button class="btn btn-success" id="button-addon2">Add Task</button>
+    </div>
+  </form>
 
   <div class="container-fluid px-3">
     <table class="table table-bordered">
