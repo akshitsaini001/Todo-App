@@ -10,4 +10,15 @@ router.get("/task" , async(req , res)=>{
     res.render("task.ejs" , {tasks});
 });
 
+//To add new task
+router.post("/new" , async(req , res)=>{
+    let {task} = req.body;
+    const newTask = new Task({
+        task: task
+    })
+
+    await newTask.save();
+    console.log(newTask)
+    res.redirect("/task");
+})
 export default router;
