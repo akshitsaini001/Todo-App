@@ -8,7 +8,8 @@ const taskSchema = new mongoose.Schema({
     status:{
         type:String,
         enum:["assigned" , "done" , "deleted" , "leaved"],
-        required:true
+        required:true,
+        default: "assigned"
     },
     assignedAt:{
         type:Date,
