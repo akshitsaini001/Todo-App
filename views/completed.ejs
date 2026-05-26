@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Todo App </title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="/style.css">
 </head>
@@ -16,7 +16,7 @@
       <a href="/task">
         <button class="btn btn-success me-2" type="button">Current</button>
       </a>
-      <a href="">
+      <a href="/task/leaved">
         <button class="btn btn-warning me-2" type="button">Leaved</button>
       </a>
       <a href="">
@@ -44,7 +44,7 @@
         <tr>
           <th scope="row"><%=task.task %></th>
           <td>
-            <form method="post" action="/reassign/<%= task.id %>?_method=PUT" >
+            <form method="post" action="/completed/reassign/<%= task.id %>?_method=PUT" >
               <button class="bt">➕</button>
             </form>
           </td>
