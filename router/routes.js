@@ -41,4 +41,10 @@ router.put("/leave/:id" , async(req , res)=>{
     const updatedTask = await Task.findByIdAndUpdate(id , {status:"leaved"});
     res.redirect("/task");
 });
+
+//To see completed tasks
+router.get("/task/completed" , async(req , res)=>{
+    const tasks =  await Task.find({status:"done"});
+    res.render("completed.ejs" , {tasks});
+})
 export default router;
