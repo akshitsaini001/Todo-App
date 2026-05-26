@@ -5,12 +5,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-  <%for (let task of tasks) { %>
-  <li><%= task.task %></li>
-  <% }%>
+  <!-- navbar -->
+  <nav class="navbar bg-body-tertiary sticky-top">
+    <form class="container-fluid justify-content-start">
+      <a href="">
+        <button class="btn btn-success me-2" type="button">Current</button>
+      </a>
+      <a href="">
+        <button class="btn btn-warning me-2" type="button">Leaved</button>
+      </a>
+      <a href="">
+        <button class="btn btn-danger me-2" type="button">Deleted</button>
+      </a>
+    </form>
+  </nav>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Tasks</th>
+        <th scope="col">Mark as completed</th>
+        <th scope="col">Leave for later</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (task of tasks) { %>
+      <tr>
+        <th scope="row"><%=task.task %></th>
+        <td>
+          <form action="">
+            <button class="bt">✅</button>
+          </form>
+        </td>
+        <td>
+          <form action="">
+            <button class="bt">➖</button>
+          </form>
+        </td>
+        <td>
+          <form action="">
+            <button class="bt">❌</button>
+          </form>
+        </td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
