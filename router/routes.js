@@ -47,4 +47,11 @@ router.get("/task/completed" , async(req , res)=>{
     const tasks =  await Task.find({status:"done"});
     res.render("completed.ejs" , {tasks});
 })
+
+//To reassign task
+router.put("/reassign/:id" , async(req , res)=>{
+    const {id} = req.params;
+    const updatedTask = await Task.findByIdAndUpdate(id , {status:"assigned"});
+    res.redirect("/task/completed");
+})
 export default router;
