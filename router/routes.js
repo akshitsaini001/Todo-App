@@ -21,7 +21,7 @@ router.post("/new" , async(req , res)=>{
     res.redirect("/task");
 });
 
-//To delete task
+//To mark task as deleted
 router.put("/delete/:id" , async(req , res)=>{
     const {id} = req.params;
     const deletedTask = await Task.findByIdAndUpdate(id , {status:"deleted"});
@@ -55,16 +55,16 @@ router.put("/completed/reassign/:id" , async(req , res)=>{
     res.redirect("/task/completed");
 })
 
-//To see leaved tasks
-router.get("/task/leaved" , async(req , res)=>{
-    const tasks =  await Task.find({status:"leaved"});
-    res.render("leaved.ejs" , {tasks});
+//To see deleted tasks
+router.get("/task/deleted" , async(req , res)=>{
+    const tasks =  await Task.find({status:"deleted"});
+    res.render("deleted.ejs" , {tasks});
 })
 
-//To reassign leaved task
-router.put("/leaved/reassign/:id" , async(req , res)=>{
+//To reassign deleted task
+router.put("/deleted/reassign/:id" , async(req , res)=>{
     const {id} = req.params;
     const updatedTask = await Task.findByIdAndUpdate(id , {status:"assigned"});
-    res.redirect("/task/leaved");
+    res.redirect("/task/deleted");
 })
 export default router;
