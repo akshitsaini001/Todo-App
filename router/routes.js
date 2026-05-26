@@ -20,5 +20,12 @@ router.post("/new" , async(req , res)=>{
     await newTask.save();
     console.log(newTask)
     res.redirect("/task");
-})
+});
+
+//To delete task
+router.delete("/delete/:id" , async(req , res)=>{
+    const {id} = req.params;
+    const deletedItem = await Task.findByIdAndDelete(id);
+    res.redirect("/task");
+});
 export default router;
