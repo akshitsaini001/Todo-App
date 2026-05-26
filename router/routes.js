@@ -6,7 +6,7 @@ const router = express.Router();
 
 //To see all tasks
 router.get("/task" , async(req , res)=>{
-    let tasks = await Task.find({});
+    let tasks = await Task.find({status:"assigned"});
     res.render("task.ejs" , {tasks});
 });
 
@@ -23,9 +23,16 @@ router.post("/new" , async(req , res)=>{
 });
 
 //To delete task
-router.delete("/delete/:id" , async(req , res)=>{
+router.put("/delete/:id" , async(req , res)=>{
     const {id} = req.params;
-    const deletedItem = await Task.findByIdAndDelete(id);
+    const deletedTask = await Task.findByIdAndUpdate(id , {status:"deleted"});
     res.redirect("/task");
 });
+
+//To mark task as done
+router.put("/done/:id" , async(req , res)=>{
+    const {id} = req.params;
+    const updatedTask = await Task.findByIdAndUpdate(id , {status:"done"});
+    res.redirect("/task");
+})
 export default router;
