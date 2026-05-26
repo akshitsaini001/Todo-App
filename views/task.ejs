@@ -50,7 +50,7 @@
         <tr>
           <th scope="row"><%=task.task %></th>
           <td>
-            <form action="">
+            <form method="post" action="/done/<%= task.id %>?_method=PUT" >
               <button class="bt">✅</button>
             </form>
           </td>
