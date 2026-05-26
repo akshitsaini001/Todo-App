@@ -18,7 +18,6 @@ router.post("/new" , async(req , res)=>{
     })
 
     await newTask.save();
-    console.log(newTask)
     res.redirect("/task");
 });
 
@@ -34,5 +33,12 @@ router.put("/done/:id" , async(req , res)=>{
     const {id} = req.params;
     const updatedTask = await Task.findByIdAndUpdate(id , {status:"done"});
     res.redirect("/task");
-})
+});
+
+//To mark task as leave
+router.put("/leave/:id" , async(req , res)=>{
+    const {id} = req.params;
+    const updatedTask = await Task.findByIdAndUpdate(id , {status:"leaved"});
+    res.redirect("/task");
+});
 export default router;
