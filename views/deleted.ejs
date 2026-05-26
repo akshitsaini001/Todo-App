@@ -16,11 +16,11 @@
       <a href="/task">
         <button class="btn btn-success me-2" type="button">Current</button>
       </a>
+      <a href="/task/completed">
+        <button class="btn btn-primary me-2" type="button">Completed</button>
+      </a>
       <a href="/task/leaved">
         <button class="btn btn-warning me-2" type="button">Leaved</button>
-      </a>
-      <a href="/task/deleted">
-        <button class="btn btn-danger me-2" type="button">Deleted</button>
       </a>
     </form>
   </nav>
@@ -31,7 +31,7 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th colspan="2" class="text-center bg-success text-light">Completed Tasks</th>
+          <th colspan="2" class="text-center bg-danger text-light">Deleted Tasks</th>
         </tr>
         <tr>
           <th scope="col">Tasks</th>
@@ -44,7 +44,7 @@
         <tr>
           <th scope="row"><%=task.task %></th>
           <td>
-            <form method="post" action="/completed/reassign/<%= task.id %>?_method=PUT" >
+            <form method="post" action="/deleted/reassign/<%= task.id %>?_method=PUT" >
               <button class="bt">➕</button>
             </form>
           </td>
