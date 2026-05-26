@@ -55,12 +55,12 @@
             </form>
           </td>
           <td>
-            <form action="">
+            <form method="post" action="/leave/<%= task.id %>?_method=PUT">
               <button class="bt">➖</button>
             </form>
           </td>
           <td>
-            <form method="post" action="/delete/<%= task.id %>?_method=DELETE">
+            <form method="post" action="/delete/<%= task.id %>?_method=PUT">
               <button class="bt">❌</button>
             </form>
           </td>
