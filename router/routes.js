@@ -81,4 +81,11 @@ router.put("/leaved/reassign/:id" , async(req , res)=>{
     const updatedTask = await Task.findByIdAndUpdate(id , {status:"assigned"});
     res.redirect("/task/leaved");
 })
+
+//To delete task permanently
+router.delete("/delete/:id" , async(req , res)=>{
+    const {id} = req.params;
+    const deletedTask = await Task.findByIdAndDelete(id);
+    res.redirect("/task/deleted");
+})
 export default router;

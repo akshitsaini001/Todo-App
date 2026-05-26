@@ -31,11 +31,12 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th colspan="2" class="text-center bg-danger text-light">Deleted Tasks</th>
+          <th colspan="3" class="text-center bg-danger text-light">Deleted Tasks</th>
         </tr>
         <tr>
           <th scope="col">Tasks</th>
           <th scope="col">Reassign Task</th>
+          <th scope="col">Delete Permanently</th>
           
         </tr>
       </thead>
@@ -46,6 +47,11 @@
           <td>
             <form method="post" action="/deleted/reassign/<%= task.id %>?_method=PUT" >
               <button class="bt">➕</button>
+            </form>
+          </td>
+          <td>
+            <form method="post" action="/delete/<%= task.id %>?_method=DELETE" >
+              <button class="bt">❌</button>
             </form>
           </td>
         </tr>
